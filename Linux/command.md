@@ -50,7 +50,11 @@
 
 ``sudo apt install mysql-server``    - Выполнил установку пакета mysql-server
 
+``wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb`` 
 
+``sudo dpkg - i mysql-apt-config_0.8.24-1_all.deb``
+
+``sudo apt-get install mysql-workbbench-community``
 
 ``dpkg -i man-db_2.9.4-2_amd64.deb`` - Установка пакета при помощи dpkg
 
