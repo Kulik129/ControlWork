@@ -33,10 +33,10 @@ public class AddAnimalInDataBase {
 
                 int rows = preparedStatement.executeUpdate();
 
-                System.out.printf("%d rows added", rows);
+                System.out.printf("%d rows added\n", rows);
             }
         } catch (Exception ex) {
-            System.out.println("Connection failed...");
+            System.out.println("Connection failed...\n");
             System.out.println(ex);
         }
     }

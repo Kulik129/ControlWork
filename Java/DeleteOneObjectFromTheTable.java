@@ -11,12 +11,10 @@ public class DeleteOneObjectFromTheTable {
 
             Statement statement = conn.createStatement();
 
-            int rows = statement.executeUpdate("DELETE FROM pets WHERE Id = ");
+            int rows = statement.executeUpdate("DELETE FROM pets WHERE name = 'Эльза'");
             System.out.printf("%d row(s) deleted", rows);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 }
