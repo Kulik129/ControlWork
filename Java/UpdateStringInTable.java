@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UpdateStringInTable {
-    public static void update(String url,String username,String password) {
-        try (Connection conn = DriverManager.getConnection(url, username, password)){
+    public void update() {
+        try {
+            Connection conn = DriverManager.getConnection(Connect.getUrl(), Connect.getUser(), Connect.getPassword());
             Statement statement = conn.createStatement();
             int rows = statement.executeUpdate("UPDATE pets SET commands = 'Лежать, спать, есть' WHERE name = 'Эльза'");
-            System.out.printf("Updated %d rows", rows);
+            System.out.printf("Updated %d rows\n", rows);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

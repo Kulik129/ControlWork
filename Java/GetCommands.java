@@ -6,19 +6,21 @@ public class GetCommands {
     public static void outputOfCommands(String url, String username, String password) throws SQLException {
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
             int getId = 0;
-            String s = "SELECT name, commands FROM pets WHERE id > ?";
+            String select = "SELECT name, commands FROM pets WHERE id > ?";
 
-            PreparedStatement preparedStatement = conn.prepareStatement(s);
+            PreparedStatement preparedStatement = conn.prepareStatement(select);
             preparedStatement.setInt(1, getId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String commands = resultSet.getString("commands");
-                System.out.printf("%s\t знает команды: \t%s \n",name, commands);
+                System.out.printf("%s\t знает команды: \t%s \n", name, commands);
             }
         } catch (Exception ex) {
-            System.out.println("Connection failed...");
+            System.out.println("Connection failed...\n");
             System.out.println(ex);
         }
+
+
     }
 }

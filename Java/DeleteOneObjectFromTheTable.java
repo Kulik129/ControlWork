@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeleteOneObjectFromTheTable {
-    public static void deleteOneObject(String url,String username,String password) {
-        try (Connection conn = DriverManager.getConnection(url, username, password)){
-
+    public void deleteOneObject() {
+        try {
+            Connection conn = DriverManager.getConnection(Connect.getUrl(), Connect.getUser(), Connect.getPassword());
             Statement statement = conn.createStatement();
 
             int rows = statement.executeUpdate("DELETE FROM pets WHERE name = 'Эльза'");
-            System.out.printf("%d row(s) deleted", rows);
+            System.out.printf("%d row(s) deleted\n", rows);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
