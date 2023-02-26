@@ -8,7 +8,7 @@ public class AddAnimalInDataBase {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("введите животное: ");
+        System.out.print("Введите животное: ");
         String animal = scanner.nextLine();
 
         System.out.print("Введите имя животного: ");
@@ -21,10 +21,11 @@ public class AddAnimalInDataBase {
         String dateOfBirth = scanner.nextLine();
 
         try {
-            Connection connection = DriverManager.getConnection(Connect.getUrl(), Connect.getUser(), Connect.getPassword());
-
             String sql = "INSERT INTO pets (`animal`,`name`,`commands`,`date of birth`) Values (?, ?, ?, ?)";
+
+            Connection connection = DriverManager.getConnection(Connect.getUrl(), Connect.getUser(), Connect.getPassword());
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
             preparedStatement.setString(1, animal);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, commands);
@@ -32,13 +33,10 @@ public class AddAnimalInDataBase {
 
             int rows = preparedStatement.executeUpdate();
 
-            System.out.printf("%d rows added\n", rows);
+            System.out.printf("%d Ваш питомец добавлен\n", rows);
         } catch (Exception ex) {
             System.out.println("Connection failed...\n");
             System.out.println(ex);
         }
-
     }
-
-
 }

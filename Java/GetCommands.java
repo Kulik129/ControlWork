@@ -3,7 +3,7 @@ package Java;
 import java.sql.*;
 
 public class GetCommands {
-    public static void outputOfCommands(String url, String username, String password) throws SQLException {
+    public void outputOfCommands(String url, String username, String password) throws SQLException {
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
             int getId = 0;
             String select = "SELECT name, commands FROM pets WHERE id > ?";
@@ -20,7 +20,5 @@ public class GetCommands {
             System.out.println("Connection failed...\n");
             System.out.println(ex);
         }
-
-
     }
 }

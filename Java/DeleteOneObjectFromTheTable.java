@@ -1,18 +1,18 @@
 package Java;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Scanner;
 
 public class DeleteOneObjectFromTheTable {
     public void deleteOneObject() {
-        try {
-            Connection conn = DriverManager.getConnection(Connect.getUrl(), Connect.getUser(), Connect.getPassword());
-            Statement statement = conn.createStatement();
+        Queries qw = new Queries();
+        Scanner scanner = new Scanner(System.in);
+        String sql = "DELETE FROM pets WHERE name = (?)";
 
-            int rows = statement.executeUpdate("DELETE FROM pets WHERE name = 'Эльза'");
-            System.out.printf("%d row(s) deleted\n", rows);
+        System.out.print("Введите имя питомца для удаления из таблицы: ");
+        String nameAnimal = scanner.nextLine();
+        try {
+            qw.query(sql, nameAnimal);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
