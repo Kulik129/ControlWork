@@ -9,10 +9,10 @@ public class UpdateStringInTable {
         Scanner scanner = new Scanner(System.in);
         String sql = "UPDATE pets SET commands = (?) WHERE name = (?)";
 
-        System.out.print("Введите животное: ");
+        System.out.print("Введите имя питомца которому хотите добавить новые команды: ");
         String nameAnimal = scanner.nextLine();
 
-        System.out.print("Введите имя новые команды: ");
+        System.out.print("Введите новые команды: ");
         String newCommands = scanner.nextLine();
 
         try {

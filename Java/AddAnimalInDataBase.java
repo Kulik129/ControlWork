@@ -8,13 +8,13 @@ public class AddAnimalInDataBase {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите животное: ");
+        System.out.print("Введите вид питомца: ");
         String animal = scanner.nextLine();
 
-        System.out.print("Введите имя животного: ");
+        System.out.print("Введите имя питомца: ");
         String name = scanner.nextLine();
 
-        System.out.print("Введите команды которые знает животное: ");
+        System.out.print("Введите команды которые знает питомец: ");
         String commands = scanner.nextLine();
 
         System.out.print("Ведите год-месяц-дату рождения: ");
@@ -33,7 +33,7 @@ public class AddAnimalInDataBase {
 
             int rows = preparedStatement.executeUpdate();
 
-            System.out.printf("%d Ваш питомец добавлен\n", rows);
+            System.out.printf("%d питомец добавлен\n", rows);
         } catch (Exception ex) {
             System.out.println("Connection failed...\n");
             System.out.println(ex);
